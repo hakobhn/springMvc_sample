@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<groupId>com.sample</groupId>
+    <artifactId>sample</artifactId>
+    <version>1.0</version>
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <name>sample</name>
+
+    <description>
+        sample rest server api
+    </description>
+
+    <properties>
+
+        <java-version>1.8</java-version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.compiler.source>${java-version}</maven.compiler.source>
+        <maven.compiler.target>${java-version}</maven.compiler.target>
+
+        <sample-version>1.0</sample-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <export.packages></export.packages>
+        <import.packages>*;resolution:=optional</import.packages>
+        <require.bundle></require.bundle>
+
+        <springframework.version>4.3.24.RELEASE</springframework.version>
+        <springframework.boot-version>2.1.6.RELEASE</springframework.boot-version>
+        <fasterxml.jackson.version>2.5.0</fasterxml.jackson.version>
+
+        <slf4j.version>1.7.25</slf4j.version>
+        <logback.version>1.1.3</logback.version>
+
+    </properties>
+
+    <modules>
+        <module>sample-a</module>
+        <module>sample-b</module>
+        <module>rest</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- General dependencies -->
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>com/sample/api/config/*.class</exclude>
+                            <exclude>com/v/api/dto/*.class</exclude>
+                            <exclude>com/sample/api/model/*.class</exclude>
+                            <exclude>com/sample/api/rest/exception/*.class</exclude>
+                            <exclude>com/sample/api/rest/util/*.class</exclude>
+                            <exclude>com/sample/api/utils/*.class</exclude>
+                        </excludes>
+                    </instrumentation>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+
+        </plugins>
+    </reporting>
+</project>
